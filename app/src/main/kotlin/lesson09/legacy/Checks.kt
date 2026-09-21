@@ -87,7 +87,7 @@ private fun headerValues(response: HttpResponse, name: String): List<String> =
         .filter { it.key.equals(name, ignoreCase = true) }
         .flatMap { it.value }
 
-// Закрытая часть эталона. Повторяющийся ключ: побеждает последнее значение.
+// При повторении ключа сохраняется последнее значение.
 private fun flatObject(source: String?): Map<String, Any?>? {
     if (source == null) return null
     val token = Regex(
